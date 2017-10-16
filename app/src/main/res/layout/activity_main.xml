@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.masotech.diceroller.MainActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <TextView
+        android:id="@+id/dice_roller"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Dice Roller"
+        android:layout_centerHorizontal="true"
+        android:textSize="50sp"
+         />
+
+    <ImageView
+        android:id="@+id/dice1_image"
+        android:paddingTop="0dp"
+        android:src="@drawable/dice1_1"
+        android:layout_width="300px"
+        android:layout_height="300px"
+        android:layout_alignTop="@+id/dice2_image"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="45dp"
+        android:layout_marginEnd="45dp" />
+
+    <ImageView
+        android:id="@+id/dice2_image"
+        android:paddingTop="0dp"
+        android:src="@drawable/dice2_1"
+        android:layout_width="300px"
+        android:layout_height="300px"
+        android:layout_marginTop="77dp"
+        android:layout_below="@+id/dice_roller"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="45dp"
+        android:layout_marginStart="45dp" />
+
+
+    <Button
+        android:id="@+id/roll_btn"
+        android:layout_marginTop="75dp"
+        android:background="@drawable/roll2"
+        android:layout_below="@id/dice1_image"
+        android:layout_centerHorizontal="true"
+        android:layout_width="300px"
+        android:layout_height="300px" />
+
+    </RelativeLayout>
+
+</ScrollView>
