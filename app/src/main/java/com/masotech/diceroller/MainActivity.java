@@ -32,14 +32,19 @@ public class MainActivity extends AppCompatActivity {
         mDice2Image = (ImageView) findViewById(R.id.dice2_image);
         mRoll = (Button) findViewById(R.id.roll_btn);
 
+        //add drawable images to the Arraylist 1.
         fillDice1Array();
+
+        //add drawable images to the Arraylist 1.
         fillDice2Array();
 
+        //check for savedInstanceState when rotation.
         if(savedInstanceState !=null){
             mDice1Image.setImageResource(mDice1.get(savedInstanceState.getInt("dice1ImageId")));
             mDice2Image.setImageResource(mDice2.get(savedInstanceState.getInt("dice2ImageId")));
         }
 
+        //this is a listener called when the button clicked
         mRoll.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -51,13 +56,14 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void roll(){
-
+        // add some rotation animation to the images
         RotateAnimation anim = new RotateAnimation(0, 360, 180, 180);
         anim.setInterpolator(new LinearInterpolator());
         anim.setDuration(200);
         mDice1Image.startAnimation(anim);
         mDice2Image.startAnimation(anim);
 
+        // generate random numbers and apply them to the images.
         Random r = new Random();
 
         mNumber1 = r.nextInt(6);
@@ -65,9 +71,10 @@ public class MainActivity extends AppCompatActivity {
         setDiceResourses(mNumber1 , mNumber2);
     }
 
+
     public void setDiceResourses(int number1 , int number2){
 
-
+        //set the image resources from the Arraylists.
         mDice1Image.setImageResource(mDice1.get(number1));
         mDice2Image.setImageResource(mDice2.get(number2));
     }
@@ -97,6 +104,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
+        //save the state when we rotate the device.
         outState.putInt("dice1ImageId" , mNumber1);
         outState.putInt("dice2ImageId" , mNumber2);
     }
